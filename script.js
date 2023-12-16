@@ -7,6 +7,19 @@ const wordsNumberE1 = document.querySelector(".stat__number--words");
 textareaE1.addEventListener("input", function () {
   const numberOfCharacters = textareaE1.value.length;
   const twitterCharactersLeft = 280 - numberOfCharacters;
+  const facebookCharactersLeft = 2200 - numberOfCharacters;
+  if (twitterCharactersLeft < 0) {
+    twitterNumberE1.classList.add("stat__number--limit");
+  } else {
+    twitterNumberE1.classList.remove("stat__number--limit");
+  }
+
+  if (facebookCharactersLeft < 0) {
+    facebookNumberE1.classList.add("stat__number--limit");
+  } else {
+    facebookNumberE1.classList.remove("stat__number--limit");
+  }
   charactersNumberE1.textContent = numberOfCharacters;
   twitterNumberE1.textContent = twitterCharactersLeft;
+  facebookNumberE1.textContent = facebookCharactersLeft;
 });
