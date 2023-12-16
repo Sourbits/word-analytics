@@ -5,6 +5,10 @@ const facebookNumberE1 = document.querySelector(".stat__number--facebook");
 const wordsNumberE1 = document.querySelector(".stat__number--words");
 
 textareaE1.addEventListener("input", function () {
+  let numberOfWords = textareaE1.value.split(" ").length;
+  if (textareaE1.value.length === 0) {
+    numberOfWords = 0;
+  }
   const numberOfCharacters = textareaE1.value.length;
   const twitterCharactersLeft = 280 - numberOfCharacters;
   const facebookCharactersLeft = 2200 - numberOfCharacters;
@@ -19,6 +23,7 @@ textareaE1.addEventListener("input", function () {
   } else {
     facebookNumberE1.classList.remove("stat__number--limit");
   }
+  wordsNumberE1.textContent = numberOfWords;
   charactersNumberE1.textContent = numberOfCharacters;
   twitterNumberE1.textContent = twitterCharactersLeft;
   facebookNumberE1.textContent = facebookCharactersLeft;
